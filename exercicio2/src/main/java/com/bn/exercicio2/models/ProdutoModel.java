@@ -1,20 +1,24 @@
 package com.bn.exercicio2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Entity
+@Entity (name = "Produto")
+@Table (name = "TBL_PRODUTO")
 public class ProdutoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column (name = "nome_produto")
     private String nome;
+
+    @Column (name = "preco_produto")
     private BigDecimal preco;
+
+    @Column(name = "quantidade_estoque")
     private Integer estoque;
 
     public ProdutoModel(){
