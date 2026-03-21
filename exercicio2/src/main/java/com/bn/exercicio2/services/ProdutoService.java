@@ -29,7 +29,10 @@ public class ProdutoService {
     }
 
     public ProdutoModel atualizarProduto(Long id, ProdutoModel produtoModel){
-        ProdutoModel newProdutoModel = produtoRepository.findById(id).get();
-        return produtoRepository.save(produtoModel);
+        ProdutoModel novoProduto = produtoRepository.findById(id).get();
+        novoProduto.setNome(produtoModel.getNome());
+        novoProduto.setPreco(produtoModel.getPreco());
+        novoProduto.setEstoque(produtoModel.getEstoque());
+        return produtoRepository.save(novoProduto);
     }
 }
